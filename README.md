@@ -1,4 +1,18 @@
-# 一个逗比写的逗比脚本
+---
+## ssh_port.sh
+
+- 脚本说明: SSH 一键修改端口脚本
+- 系统支持: Debian6+ / Ubuntu14+
+- 使用方法: https://doub.io/linux-jc11/
+
+#### 下载安装:
+``` bash
+wget -N --no-check-certificate https://raw.githubusercontent.com/wrxx2019/doubi/master/ssh_port.sh && chmod +x ssh_port.sh && bash ssh_port.sh
+```
+
+
+
+---# 一个逗比写的逗比脚本
 
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 [![GitHub stars](https://img.shields.io/github/stars/ToyoDAdoubiBackup/doubi.svg?style=popout&label=Stars)](https://github.com/ToyoDAdoubiBackup/doubi/stargazers)
@@ -330,19 +344,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBack
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/ban_iptables.sh && chmod +x ban_iptables.sh && bash ban_iptables.sh
 ```
 
----
-## ssh_port.sh
 
-- 脚本说明: SSH 一键修改端口脚本
-- 系统支持: Debian6+ / Ubuntu14+
-- 使用方法: https://doub.io/linux-jc11/
-
-#### 下载安装:
-``` bash
-wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/ssh_port.sh && chmod +x ssh_port.sh && bash ssh_port.sh
-```
-
----
 
 ## VPN相关
 
