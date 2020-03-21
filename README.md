@@ -3,13 +3,71 @@
 
 - 脚本说明: SSH 一键修改端口脚本
 - 系统支持: Debian6+ / Ubuntu14+
-- 使用方法: https://doub.io/linux-jc11/
+- 使用方法: https://doubibackup.com/0_88_gut.html
 
 #### 下载安装:
 ``` bash
 wget -N --no-check-certificate https://raw.githubusercontent.com/wrxx2019/doubi/master/ssh_port.sh && chmod +x ssh_port.sh && bash ssh_port.sh
 ```
 
+
+
+
+## caddy_install.sh
+
+- 脚本说明: Caddy 一键安装脚本
+- 系统支持: CentOS6+ / Debian7+ / Ubuntu14+
+- 使用方法: https://doubibackup.com/l-en8vwt-2.html
+
+#### 下载安装:
+``` bash
+wget -N --no-check-certificate https://raw.githubusercontent.com/wrxx2019/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh
+ # 安装插件：
+ bash caddy_install.sh xxx,xxx
+  # 例如同时安装 http.filemanager 和 http.webdav插件：
+  bash caddy_install.sh http.filemanager,http.webdav
+  # 插件和Caddy是集成在一起的(单个二进制文件)，多个插件必须同时安装。
+
+```
+# 如果你有 SSL证书和密匙的话，把 SSL证书(xxx.crt)和密匙(xxx.key)文件放到 /root 文件夹下（也可以是其他文件夹，自己改下面代码），然后这样做：
+
+# 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！
+echo "toyoo.pw {
+ gzip
+ tls /root/xxx.crt /root/xxx.key
+ proxy / https://www.google.com.hk
+}" > /usr/local/caddy/Caddyfile
+如果你没有 SSL证书和密匙，那么你可以这样做：
+
+下面的 xxxx@xxx.xx 改成你的邮箱，同时需要注意的是，申请 SSL证书前，请务必提前解析好域名记录(解析后最好等一会，以全球生效)，否则 Caddy会申请并配置失败！
+
+# 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！
+echo "toyoo.pw {
+ gzip
+ tls xxxx@xxx.xx
+ proxy / https://www.google.com.hk
+}" > /usr/local/caddy/Caddyfile
+如果一切正常，那么Caddy会自动帮你申请 SSL证书并配置好，而且会定时续约SSL证书 和 强制 http重定向至https ！
+
+Caddy自动申请SSL证书位置：/.caddy/acme/acme-v02.api.letsencrypt.org/sites/xxx.xxx(域名)/
+使用说明
+启动：/etc/init.d/caddy start
+
+停止：/etc/init.d/caddy stop
+
+重启：/etc/init.d/caddy restart
+
+查看状态：/etc/init.d/caddy status
+
+查看Caddy启动日志： tail -f /tmp/caddy.log
+
+Caddy配置文件位置：/usr/local/caddy/Caddyfile
+
+卸载 Caddy：
+执行以下代码后，会问你是否确定要卸载 Caddy，输入 y 即可。
+
+注意：卸载 Caddy 会把Caddy的所有虚拟主机文件夹和配置文件删除，并且不可恢复！
+wget -N --no-check-certificate https://raw.githubusercontent.com/wrxx2019/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh uninstall
 
 
 ---# 一个逗比写的逗比脚本
@@ -378,23 +436,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBack
 
 ## HTTP相关
 
-## caddy_install.sh
 
-- 脚本说明: Caddy 一键安装脚本
-- 系统支持: CentOS6+ / Debian7+ / Ubuntu14+
-- 使用方法: https://doub.io/shell-jc1
-
-#### 下载安装:
-``` bash
-wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh
- # 安装插件：
- bash caddy_install.sh xxx,xxx
-  # 例如同时安装 http.filemanager 和 http.webdav插件：
-  bash caddy_install.sh http.filemanager,http.webdav
-  # 插件和Caddy是集成在一起的(单个二进制文件)，多个插件必须同时安装。
-# 卸载命令：
-wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && caddy_install.sh uninstall
-```
 
 ---
 ## pythonhttp.sh
